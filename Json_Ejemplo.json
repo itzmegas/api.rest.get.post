@@ -1,9 +1,1 @@
-[
-  {
-    "dni": "3154543",
-    "nombre": "Fer",
-    "apellido": "Luna",
-    "curso": "Programación X",
-    "año": 2020
-  }
-]
+[{"dni":"3154543","nombre":"Fer","apellido":"Luna","curso":"Programación X","año":2020},{"dni":"23423553","nombre":"Pablo","apellido":"Navarro","curso":"Programación IX","año":2020},{"dni":"23423553","nombre":"Pablo","apellido":"Navarro","curso":"Programación IX","año":2020},{"dni":"4684164","nombre":"Emmanuel","apellido":"Gonzasadlez","curso":"Programación IX","año":2020},{"dni":"235353","nombre":"Felix","apellido":"Encina","curso":"Programación XXX","año":2020},{"dni":"235353","nombre":"sadasf","apellido":"dfdsgs","curso":"Programación XXX","año":2020},{"dni":"4353","nombre":"shahaf","apellido":"freedom-fighters","curso":"Programación XXX","año":2020},{"dni":"21314353","nombre":"asdfsgd","apellido":"sdfgdh-fighters","curso":"dffdg XXX","año":2020}]

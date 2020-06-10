@@ -20,10 +20,15 @@ namespace Api.Rest
             }
             return AlumnosFromJson;
         }
+
         public void SerializedJsonFile(List<Alumnos> alumnos)
         {
-            string alumnoJson = JsonConvert.SerializeObject(alumnos.ToArray(), Formatting.Indented);
-            File.WriteAllText(_path, alumnoJson);
+            JsonSerializer serializer = new JsonSerializer();
+            using (StreamWriter sw = new StreamWriter(_path))
+            using (JsonWriter writer = new JsonTextWriter(sw))
+            {
+                serializer.Serialize(writer, alumnos);               
+            } 
         }
         public void DeserializeJsonFile(string alumnosFromJson)
         {

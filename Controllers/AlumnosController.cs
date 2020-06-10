@@ -19,9 +19,11 @@ namespace Api.Rest.Controllers
         {
             try
             {
+               
                 RepoAlumnos _alumnos = new RepoAlumnos();
                 var alumnos = _alumnos.GetAlumnosFromJson();
                 _alumnos.DeserializeJsonFile(alumnos);
+
                 return Ok(alumnos.ToString());
             }catch
             {
@@ -38,21 +40,18 @@ namespace Api.Rest.Controllers
         public void Post([FromBody] Alumnos _alumnos)
         {
             RepoAlumnos _repoAlumnos = new RepoAlumnos();
-
-            List<Alumnos> alumnos = new List<Alumnos>
-            {
-                new Alumnos
-                {
-                   dni = _alumnos.dni,
-                   nombre = _alumnos.nombre,
-                   apellido = _alumnos.apellido,
-                   curso = _alumnos.curso,
-                   año = _alumnos.año
-                }
-            };
-            //alumnos.Add();
-            var listAlumnos = alumnos;
-            _repoAlumnos.SerializedJsonFile(listAlumnos);
+            var alumnos = _repoAlumnos.GetAlumnosFromJson();
+            _repoAlumnos.DeserializeJsonFile(alumnos);
+           
+            var list = JsonConvert.DeserializeObject<List<Alumnos>>(alumnos);
+            list.Add(new Alumnos {
+                dni = _alumnos.dni,
+                nombre = _alumnos.nombre,
+                apellido = _alumnos.apellido,
+                curso = _alumnos.curso,
+                año = _alumnos.año
+            });
+            _repoAlumnos.SerializedJsonFile(list);
         }
     }
 }
